@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/products_overview_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,6 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'MyShop',
       theme: ThemeData(
+        fontFamily: 'Lato',
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: Color.fromARGB(236, 246, 56, 164),
           secondary: Color.fromARGB(255, 0, 0, 0),
