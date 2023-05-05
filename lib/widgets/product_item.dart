@@ -33,14 +33,17 @@ class ProductItem extends StatelessWidget {
           ),
         ),
         footer: GridTileBar(
-          leading: IconButton(
-            icon: product.isFavourite
-                ? Icon(Icons.favorite)
-                : Icon(Icons.favorite_border),
-            color: Colors.deepOrange,
-            onPressed: () {
-              product.toggleFavourite();
-            },
+          leading: Consumer<Product>(
+            builder: (context, product, child) => IconButton(
+              icon: product.isFavourite
+                  ? Icon(Icons.favorite)
+                  : Icon(Icons.favorite_border),
+              color: Colors.deepOrange,
+              onPressed: () {
+                product.toggleFavourite();
+              },
+            ),
+            child: Text("never changes !"),
           ),
           backgroundColor: Colors.black87,
           title: Text(
