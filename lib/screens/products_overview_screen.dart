@@ -1,7 +1,10 @@
 // ignore_for_file: missing_required_param
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../widgets/products_grid.dart';
+import '../widgets/badge.dart';
+import '../providers/cart.dart';
 
 enum FilterOptions {
   Favourites,
@@ -43,7 +46,17 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
                 value: FilterOptions.All,
               ),
             ],
-          )
+          ),
+          Consumer<Cart>(
+            builder: (_, cart, child) => Badger(
+              child: child,
+              value: cart.itemCount.toString(),
+            ),
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.shopping_cart),
+            ),
+          ),
         ],
       ),
       body: ProductsGrid(_showFav),
