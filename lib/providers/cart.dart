@@ -34,6 +34,11 @@ class Cart with ChangeNotifier {
     return _total;
   }
 
+  void deleteItem(String proId) {
+    _items.remove(proId);
+    notifyListeners();
+  }
+
   void addItem(
     String productId,
     double price,
@@ -61,6 +66,11 @@ class Cart with ChangeNotifier {
         ),
       );
     }
+    notifyListeners();
+  }
+
+  void clear() {
+    _items = {};
     notifyListeners();
   }
 }
